@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "buid-android": "cd android && ./gradlew app:assembleRelease"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.11",
