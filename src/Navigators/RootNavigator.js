@@ -2,9 +2,11 @@ import React from "react";
 import {NavigationContainer} from "@react-navigation/native";
 import AuthNavigator from "./AuthNavigator";
 import MainNavigator from "./MainNavigator";
+import { useSelector } from "react-redux";
+import { AuthSelectors } from "../Store/Auth/selectors";
 
 const RootNavigator = () => {
-    const authenticated = false;
+    const authenticated = useSelector(AuthSelectors.selectIsAuthenticated());
 
     return (
         <NavigationContainer>
