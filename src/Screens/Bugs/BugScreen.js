@@ -3,20 +3,21 @@ import { ScrollView, StyleSheet } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Button, HelperText, TextInput } from "react-native-paper";
 import { BugsActions } from "../../Store/Bugs/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { BugsSelectors } from "../../Store/Bugs/selectors";
 
-const BugScreen = ({ navigation, route: { params: { scope } } }) => {
+const BugScreen = ({ navigation, route: { params: { scope, bugId } } }) => {
     const dispatch = useDispatch();
+    const bug = useSelector(BugsSelectors.selectBug(bugId));
     const { control, getValues, handleSubmit } = useForm({
         defaultValues: {
-            title: "",
-            description: "",
-            status: "",
+            title: bug?.title ?? "",
+            description: bug?.description ?? "",
+            status: bug?.status ?? "",
         },
     });
 
     const createBugSuccess = useCallback(() => {
-        console.log(":asdasdasdadas");
         navigation.goBack();
     }, [navigation]);
 
