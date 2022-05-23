@@ -9,4 +9,14 @@ export const API_ROUTES = {
             method: "POST",
         },
     },
+    BUGS: {
+        GET_ALL: {
+            url: "/bugs/bugs",
+            method: "GET",
+        },
+        CREATE: {
+            url: "/bugs/create-bug",
+            method: "POST",
+        },
+    },
 };
